@@ -1,6 +1,6 @@
 'use strict';
 
-var listeners = {};
+var listeners = Object.create(null);
 var listening = false;
 
 function listen () {
@@ -42,7 +42,14 @@ function off (key, fn) {
   }
 }
 
+function clear() {
+  global.removeEventListener('storage', change);
+  listeners = Object.create(null);
+  listening = false;
+}
+
 module.exports = {
   on: on,
-  off: off
+  off: off,
+  clear: clear
 };

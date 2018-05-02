@@ -38,5 +38,6 @@ accessor.remove = remove;
 accessor.clear = clear;
 accessor.on = tracking.on;
 accessor.off = tracking.off;
+accessor.unwatchAll = tracking.clear;
 
 module.exports = accessor;
