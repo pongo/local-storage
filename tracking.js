@@ -4,13 +4,8 @@ var listeners = {};
 var listening = false;
 
 function listen () {
-  if (global.addEventListener) {
-    global.addEventListener('storage', change, false);
-  } else if (global.attachEvent) {
-    global.attachEvent('onstorage', change);
-  } else {
-    global.onstorage = change;
-  }
+  listening = true;
+  global.addEventListener('storage', change, false);
 }
 
 function change (e) {
